@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+            <div class="message">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form action="/capitulos/save" method="post">
+        <div>
+            <label for="titulo">Título: </label>
+            <input type="text" name="titulo" id="titulo">
+        </div>
+        <div>
+            <label for="pagina_inicial">Pagina: </label>
+            <input type="text" name="pagina_inicial" id="pagina_inicial">
+        </div>
+        <button type="submit">Salvar</button>
+    </form>
+{% endblock %}
